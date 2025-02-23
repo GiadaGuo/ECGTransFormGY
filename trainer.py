@@ -105,8 +105,8 @@ class trainer(object):
             for step, batches in enumerate(self.train_dl):
                 batches = to_device(batches, self.device)
 
-                data = batches['samples'].float()
-                labels = batches['labels'].long()
+                data = batches['sample'].float()
+                labels = batches['label'].long()
 
                 # ====== Source =====================
                 self.optimizer.zero_grad()
@@ -176,8 +176,8 @@ class trainer(object):
         with torch.no_grad():
             for batches in dataset:
                 batches = to_device(batches, self.device)
-                data = batches['samples'].float()
-                labels = batches['labels'].long()
+                data = batches['sample'].float()
+                labels = batches['label'].long()
 
                 # forward pass
                 predictions = model(data)
