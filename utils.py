@@ -135,13 +135,13 @@ def to_device(input, device):
 def copy_Files(destination):
     destination_dir = os.path.join(destination, "MODEL_BACKUP_FILES")
     os.makedirs(destination_dir, exist_ok=True)
-    copy("main.py", os.path.join(destination_dir, "main.py"))
-    copy("dataloader.py", os.path.join(destination_dir, "dataloader.py"))
-    copy(f"models.py", os.path.join(destination_dir, f"models.py"))
-    copy(f"configs/data_configs.py", os.path.join(destination_dir, f"data_configs.py"))
-    copy(f"configs/hparams.py", os.path.join(destination_dir, f"hparams.py"))
-    copy(f"trainer.py", os.path.join(destination_dir, f"trainer.py"))
-    copy("utils.py", os.path.join(destination_dir, "utils.py"))
+    copy("ECGTransFormGY/main.py", os.path.join(destination_dir, "main.py"))
+    copy("ECGTransFormGY/dataloader.py", os.path.join(destination_dir, "dataloader.py"))
+    copy(f"ECGTransFormGY/models.py", os.path.join(destination_dir, f"models.py"))
+    copy(f"ECGTransFormGY/configs/data_configs.py", os.path.join(destination_dir, f"data_configs.py"))
+    copy(f"ECGTransFormGY/configs/hparams.py", os.path.join(destination_dir, f"hparams.py"))
+    copy(f"ECGTransFormGY/trainer.py", os.path.join(destination_dir, f"trainer.py"))
+    copy("ECGTransFormGY/utils.py", os.path.join(destination_dir, "utils.py"))
 
 
 def _plot_umap(model, data_loader, device, save_dir):
