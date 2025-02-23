@@ -14,14 +14,14 @@ class Load_Dataset(Dataset):
         super(Load_Dataset, self).__init__()
 
         # Load samples
-        x_data = dataset["samples"]
+        x_data = dataset["sample"]
 
         # Convert to torch tensor
         if isinstance(x_data, np.ndarray):
             x_data = torch.from_numpy(x_data)
 
         # Load labels
-        y_data = dataset.get("labels")
+        y_data = dataset.get("label")
         if y_data is not None and isinstance(y_data, np.ndarray):
             y_data = torch.from_numpy(y_data)
 
@@ -35,8 +35,8 @@ class Load_Dataset(Dataset):
 
     def __getitem__(self, index):
         sample = {
-            'samples': self.x_data[index].squeeze(-1),
-            'labels': int(self.y_data[index])
+            'sample': self.x_data[index].squeeze(-1),
+            'label': int(self.y_data[index])
         }
 
         return sample
