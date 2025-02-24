@@ -125,7 +125,7 @@ class trainer(object):
                 for key, val in losses.items():
                     loss_avg_meters[key].update(val, self.hparams["batch_size"])
 
-            self.evaluate(model, self.val_dl)
+            self.evaluate(model, self.train_dl)
             tr_acc, tr_f1 = self.calc_results_per_run()
             # logging
             self.logger.debug(f'[Epoch : {epoch}/{self.hparams["num_epochs"]}]')
