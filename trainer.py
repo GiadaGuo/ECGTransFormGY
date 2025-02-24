@@ -106,6 +106,7 @@ class trainer(object):
                 batches = to_device(batches, self.device)
 
                 data = batches['sample'].float()
+                data = data.unsqueeze(1) # 将数据从 [batch_size, sequence_length] 转换为 [batch_size, 1, sequence_length]
                 labels = batches['label'].long()
 
                 # ====== Source =====================
@@ -177,6 +178,7 @@ class trainer(object):
             for batches in dataset:
                 batches = to_device(batches, self.device)
                 data = batches['sample'].float()
+                data = data.unsqueeze(1) # 将数据从 [batch_size, sequence_length] 转换为 [batch_size, 1, sequence_length]
                 labels = batches['label'].long()
 
                 # forward pass
